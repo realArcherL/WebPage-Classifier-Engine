@@ -11,7 +11,7 @@
 5. [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
 #### Scanner
-6. [PySocks](https://pypi.org/project/PySocks/) StackOverFlow [answer](https://tor.stackexchange.com/questions/716/how-to-connect-to-a-remote-socket-through-tor-in-python) with respect to the file
+6. [PySocks](https://pypi.org/project/PySocks/). StackOverFlow [answer](https://tor.stackexchange.com/questions/716/how-to-connect-to-a-remote-socket-through-tor-in-python) with respect to the configuration.
 
 ### Methods
 1. [How to check for tor IP and clearnet IP](https://stackoverflow.com/questions/30286293/make-requests-using-python-over-tor)

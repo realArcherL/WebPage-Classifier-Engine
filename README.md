@@ -6,6 +6,10 @@
 
 3. [How to use proxies with python](https://blog.scrapinghub.com/python-requests-proxy), [How to use TOR as proxy](https://www.sylvaindurand.org/use-tor-with-python/) 
 
+4. [html2test](https://pypi.org/project/html2text/) Requires python>=3.5
+
+4. [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
 ### Methods
 1. [How to check for tor IP and clearnet IP](https://stackoverflow.com/questions/30286293/make-requests-using-python-over-tor)
 2. [source](https://gist.github.com/jefftriplett/9748036)

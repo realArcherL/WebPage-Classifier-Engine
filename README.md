@@ -7,7 +7,13 @@
 3. [How to use proxies with python](https://blog.scrapinghub.com/python-requests-proxy), [How to use TOR as proxy](https://www.sylvaindurand.org/use-tor-with-python/) 
 
 ### Methods
-[How to check for tor IP and clearnet IP](https://stackoverflow.com/questions/30286293/make-requests-using-python-over-tor)
+1. [How to check for tor IP and clearnet IP](https://stackoverflow.com/questions/30286293/make-requests-using-python-over-tor)
+2. [source](https://gist.github.com/jefftriplett/9748036)
+    Now, time for the red pill:
+
+    The request module is not looking up the .onion domain via the socks proxy but via standard dns. Since there is no root onion domain provided by icann or other NIC operators your lookup goes off to the root dns servers then dies.
+
+    The solution is to use the socks5h:// protocol in order to enable remote DNS resolving via the socks proxy in case the local DNS resolving process fails. Use The Source Luke.
 
 ### STAGE 1 Classification model (Authentication page, or what? check based on responses)
 1. [How HTTP responses are good for identifying what page it is.](https://searchengineland.com/the-ultimate-guide-to-http-status-codes-and-headers-for-seo-302786)

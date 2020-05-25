@@ -8,7 +8,10 @@
 
 4. [html2test](https://pypi.org/project/html2text/) Requires python>=3.5
 
-4. [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+5. [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
+#### Scanner
+6. [PySocks](https://pypi.org/project/PySocks/) StackOverFlow answer with respect to the file(https://tor.stackexchange.com/questions/716/how-to-connect-to-a-remote-socket-through-tor-in-python)
 
 ### Methods
 1. [How to check for tor IP and clearnet IP](https://stackoverflow.com/questions/30286293/make-requests-using-python-over-tor)

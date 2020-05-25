@@ -1,8 +1,7 @@
 ### Library
 
-1. [requests library](https://realpython.com/python-requests/) Tutorial 
+1. [requests library](https://realpython.com/python-requests/) Tutorial for output use [f-strings](https://realpython.com/python-f-strings/)
 
-for output use [f-strings](https://realpython.com/python-f-strings/)
 2. [requests-html]()
 
 ### STAGE 1 Classification model (Authentication page, or what? check based on responses)

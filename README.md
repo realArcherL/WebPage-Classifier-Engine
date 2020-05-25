@@ -4,6 +4,8 @@
 
 2. [requests-html](https://requests.readthedocs.io/projects/requests-html/en/latest/)
 
+3. [How to use proxies with python](https://blog.scrapinghub.com/python-requests-proxy)  
+
 ### STAGE 1 Classification model (Authentication page, or what? check based on responses)
 1. [How HTTP responses are good for identifying what page it is.](https://searchengineland.com/the-ultimate-guide-to-http-status-codes-and-headers-for-seo-302786)
 

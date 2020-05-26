@@ -30,8 +30,8 @@ def port_scanner(target, port):
 
     s.settimeout(timeout_value)
 ```
-There is a reason why port scanning is performed on hardcoded port numbers, because the tor has a protection mechanism in place that rejects port scanning whenever an unrecognized port is accessed and thus above mentioned condition and a time delay was considered when coding the scanner part. This is based on the [research paper's](https://dl.acm.org/doi/pdf/10.1145/3339252.3341486?download=true) finding.
-The port numbers selected on the basis of this [study](https://arxiv.org/pdf/1308.6768.pdf) are mainly
+There is a reason why port scanning is performed on hardcoded port numbers, because the tor has a protection mechanism in place that rejects port scanning whenever an unrecognized port is accessed and thus above mentioned condition and a time delay was considered when coding the scanner part. This is based on the [(2019)research paper's](https://dl.acm.org/doi/pdf/10.1145/3339252.3341486?download=true) finding.
+The port numbers selected on the basis of this [(2014)study](https://arxiv.org/pdf/1308.6768.pdf) are mainly
 SSH, HTTP(80), Skynet(Botnet, 55080), Tor Chat(11009), IRC(6667).
 
 ```

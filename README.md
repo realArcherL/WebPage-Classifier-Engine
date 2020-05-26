@@ -23,6 +23,7 @@
     The solution is to use the socks5h:// protocol in order to enable remote DNS resolving via the socks proxy in case the local DNS resolving process fails. Use [The Source Luke](https://github.com/kennethreitz/requests/blob/e3f89bf23c53b98593e4248054661472aacac820/requests/packages/urllib3/contrib/socks.py#L158).
 
 ### Literature review
+*Answers why a threaded port scanner won't work for port on websites. We need to thread the operations*
 1. [AUG-2019 paper on Tor Extraction](https://dl.acm.org/ft_gateway.cfm?id=3341486&type=pdf) Language and port scanning.
 2. [Tor port scanning](https://arxiv.org/pdf/1308.6768.pdf) Language and detection
 

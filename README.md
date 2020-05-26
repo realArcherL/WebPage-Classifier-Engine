@@ -38,6 +38,7 @@ SSH, HTTP(80), Skynet(Botnet, 55080), Tor Chat(11009), IRC(6667).
     port_numbers = [21, 22, 23, 24, 80, 443, 55080, 11009, 4050, 6667]
 ```
 #### Performance
-Threading was avoided while coding, due to tor defence, thus making the scanning of the ports take on an average of ~3.50 seconds to scan on OP's testing machine, while the nmap scan on the same ports from the same machine and same connection tool almost ~15 seconds.
+Threading was avoided while coding, due to tor defence, thus making the scanning of the ports take on an average of ~3.50 seconds to scan on OP's testing machine, while the nmap scan on the same ports from the same machine and same connection tool almost ~15 seconds. Using nmap is a better and a feasible option, but the nmap script signature can be blocked and henced a seperate script was written down. The results can be compared for the same target.
+
 
 

@@ -53,5 +53,4 @@ def point_function(target):
         str(len(scanned_ports)), (end_time - start_time)))
     return scanned_ports
 
-# target = '3g2upl4pq6kufc4m.onion'
 # point_function()

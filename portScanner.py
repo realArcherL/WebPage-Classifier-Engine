@@ -30,8 +30,7 @@ def port_scanner(target, port):
     return port_service_couple
 
 
-def point_function():
-    target = '3g2upl4pq6kufc4m.onion'
+def point_function(target):
     scanned_ports = []
     port_numbers = [21, 22, 23, 24, 80, 443, 55080, 11009, 4050, 6667]
     start_time = time.time()
@@ -52,5 +51,8 @@ def point_function():
         print(error1)
     print("\nNumber of Ports open %s, Scan Finished in %.2f seconds\n" % (
         str(len(scanned_ports)), (end_time - start_time)))
+    return scanned_ports
 
+
+# target = '3g2upl4pq6kufc4m.onion'
 # point_function()

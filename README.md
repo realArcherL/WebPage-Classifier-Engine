@@ -38,7 +38,7 @@ SSH, HTTP(80), Skynet(Botnet, 55080), Tor Chat(11009), IRC(6667).
     port_numbers = [21, 22, 23, 24, 80, 443, 55080, 11009, 4050, 6667]
 ```
 #### Performance
-Threading was avoided while coding, due to tor defence, thus making the scanning of the ports take on an average of ~3.50 seconds to scan on OP's testing machine, while the nmap scan on the same ports from the same machine and same connection tool almost ~15 seconds. Using nmap is a better and a feasible option, but the nmap script signature can be blocked and henced a seperate script was written down. The results can be compared for the same target.
+Threading was avoided when coding, due to tor protection, thus making scanning of the ports take an average of ~3.50 seconds to scan on the test computer, while the nmap search on the same ports would take almost ~15 seconds under identical conditions. Using nmap is a better and feasible choice, but the signature of the nmap script can be blocked and hence a separate script was written. The results can be compared to the same.
 
 ![port_scanner.py](https://github.com/realArcherL/WebPage-Classifier-Engine/blob/master/Images/port_Scanner_final.png.png)
 

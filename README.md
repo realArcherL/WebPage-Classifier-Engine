@@ -2,6 +2,8 @@
 
 [Introduction](#introduction)
 1. [Port Scanning](#port-scanning)
+    - [Literature](#literature)
+    - [Performance](#performance)
   
 
 
@@ -13,7 +15,7 @@ The project is basically to be able to create a core-classifier engine based on 
 
 ### Port Scanning
 #### Literature 
-Port scanning on the onion link will help me assess the number of services it's running and help me decide which service to connect to.
+Port scanning on the onion link will help one assess the number of services it's running and decide which service to connect to.
 
 The port_scanner is ```seprate function()``` can be called without the need of calling the ```point_function()```.
 ```python
@@ -29,10 +31,11 @@ def port_scanner(target, port):
     s.settimeout(timeout_value)
 ```
 There is a reason why port scanning is performed on hardcoded port numbers, because the tor has a protection mechanism in place that rejects port scanning whenever an unrecognized port is accessed and thus above mentioned condition and a time delay was considered when coding the scanner part. This is based on the [research paper's](https://dl.acm.org/doi/pdf/10.1145/3339252.3341486?download=true) finding.
-The port number's selected on the basis of this [study](https://arxiv.org/pdf/1308.6768.pdf) are mainly
+The port numbers were selected on the basis of this [study](https://arxiv.org/pdf/1308.6768.pdf) are mainly
 SSH, HTTP(80), Skynet(Botnet, 55080), Tor Chat(11009), IRC(6667).
 
 ```
     port_numbers = [21, 22, 23, 24, 80, 443, 55080, 11009, 4050, 6667]
 ```
 #### Performance
+

@@ -38,4 +38,6 @@ SSH, HTTP(80), Skynet(Botnet, 55080), Tor Chat(11009), IRC(6667).
     port_numbers = [21, 22, 23, 24, 80, 443, 55080, 11009, 4050, 6667]
 ```
 #### Performance
+Threading was avoided while coding, due to tor defence, thus making the scanning of the ports take on an average of 3.00 seconds to scan.
+
 

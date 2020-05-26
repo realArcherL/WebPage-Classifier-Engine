@@ -39,7 +39,8 @@ def point_function():
 
     for ports in port_numbers:
         result = port_scanner(target, ports)
-        scanned_ports.append(result)
+        if result:
+            scanned_ports.append(result)
 
     end_time = time.time()
 
@@ -49,7 +50,7 @@ def point_function():
     else:
         error1 = "No open ports found."
         print(error1)
-    print(f'Number of ports found {len(scanned_ports)}. Finished scan {end_time - start_time}.')
+    print("\nNumber of Ports open %s, Scan Finished in %.2f seconds\n" % (
+        str(len(scanned_ports)), (end_time - start_time)))
 
-
-point_function()
+# point_function()

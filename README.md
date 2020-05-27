@@ -17,7 +17,7 @@ The project is basically to be able to create a core-classifier engine based on 
 #### Literature 
 Port scanning on the onion link will help one assess the number of services it's running and decide which service to connect to.
 
-The port_scanner is ```seprate function()``` can be called without the need of calling the ```point_function()```.
+The port_scanner is seperate function can be called without the need of calling the ```point_function()```.
 ```python
 def port_scanner(target, port):
     reverse_proxy = "127.0.0.1" # localhost.

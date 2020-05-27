@@ -26,6 +26,8 @@
 
 4. [Threading](https://www.youtube.com/watch?v=IEEhzQoKtQU) I/O threading process, waiting for network data.
 
+5. [How to Handles requests library skillfully](https://stackabuse.com/the-python-requests-module/)
+
 ### Literature review
 *Answers why a threaded port scanner won't work for port on websites. We need to thread the operations*
 1. [AUG-2019 paper on Tor Extraction](https://dl.acm.org/ft_gateway.cfm?id=3341486&type=pdf) Language and port scanning.

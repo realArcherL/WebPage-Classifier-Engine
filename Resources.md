@@ -27,8 +27,10 @@
 4. [Threading](https://www.youtube.com/watch?v=IEEhzQoKtQU) I/O threading process, waiting for network data.
 
 5. [How to Handles requests library skillfully](https://stackabuse.com/the-python-requests-module/)
-    descided to switch to [urllib3](https://urllib3.readthedocs.io/en/latest/user-guide.html) module because of more rhobustness. '
-6. [threading with urlib3](https://stackoverflow.com/questions/3731379/example-urllib3-and-threading-in-python)
+    ~~descided to switch to [urllib3](https://urllib3.readthedocs.io/en/latest/user-guide.html) module because of more rhobustness. '
+6. ~~[threading with urlib3](https://stackoverflow.com/questions/3731379/example-urllib3-and-threading-in-python)~~
+
+7. [How to handle directory making in python](https://realpython.com/working-with-files-in-python/#making-directories)
 
 ### Literature review
 *Answers why a threaded port scanner won't work for port on websites. We need to thread the operations*

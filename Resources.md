@@ -24,6 +24,8 @@
     
 3. [Manage writing big JSON files](https://stackoverflow.com/questions/39339044/how-to-write-large-json-data)
 
+4. [Threading](https://www.youtube.com/watch?v=IEEhzQoKtQU)
+
 ### Literature review
 *Answers why a threaded port scanner won't work for port on websites. We need to thread the operations*
 1. [AUG-2019 paper on Tor Extraction](https://dl.acm.org/ft_gateway.cfm?id=3341486&type=pdf) Language and port scanning.

@@ -21,6 +21,16 @@
     The request module is not looking up the .onion domain via the socks proxy but via standard dns. Since there is no root onion domain provided by icann or other NIC operators your lookup goes off to the root dns servers then dies.
 
     The solution is to use the socks5h:// protocol in order to enable remote DNS resolving via the socks proxy in case the local DNS resolving process fails. Use [The Source Luke](https://github.com/kennethreitz/requests/blob/e3f89bf23c53b98593e4248054661472aacac820/requests/packages/urllib3/contrib/socks.py#L158).
+    
+3. [Manage writing big JSON files](https://stackoverflow.com/questions/39339044/how-to-write-large-json-data)
+
+4. [Threading](https://www.youtube.com/watch?v=IEEhzQoKtQU) I/O threading process, waiting for network data.
+
+5. [How to Handles requests library skillfully](https://stackabuse.com/the-python-requests-module/)
+    ~~descided to switch to [urllib3](https://urllib3.readthedocs.io/en/latest/user-guide.html) module because of more rhobustness. '
+6. ~~[threading with urlib3](https://stackoverflow.com/questions/3731379/example-urllib3-and-threading-in-python)~~
+
+7. [How to handle directory making in python](https://realpython.com/working-with-files-in-python/#making-directories)
 
 ### Literature review
 *Answers why a threaded port scanner won't work for port on websites. We need to thread the operations*

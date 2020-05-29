@@ -32,6 +32,8 @@
 
 7. [How to handle directory making in python](https://realpython.com/working-with-files-in-python/#making-directories)
 
+8. [Might switch to SQLITE](https://pythonspot.com/python-database-programming-sqlite-tutorial/)
+
 ### Literature review
 *Answers why a threaded port scanner won't work for port on websites. We need to thread the operations*
 1. [AUG-2019 paper on Tor Extraction](https://dl.acm.org/ft_gateway.cfm?id=3341486&type=pdf) Language and port scanning.

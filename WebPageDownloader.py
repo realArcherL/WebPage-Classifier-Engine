@@ -98,4 +98,4 @@ def point_function(url_list):
     print(f'download and stacking ended in {round(end_time - start_time, 2)}')
 
 
-# point_function(url_list=list2)
+point_function(url_list=list2)

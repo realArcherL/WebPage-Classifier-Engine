@@ -24,7 +24,7 @@
     
 3. [Manage writing big JSON files](https://stackoverflow.com/questions/39339044/how-to-write-large-json-data)
 
-4. [Threading](https://www.youtube.com/watch?v=IEEhzQoKtQU) I/O threading process, waiting for network data.
+4. [Threading](https://www.youtube.com/watch?v=IEEhzQoKtQU) I/O threading process, waiting for network data. [passing multiple arguments](https://stackoverflow.com/questions/6785226/pass-multiple-parameters-to-concurrent-futures-executor-map)
 
 5. [How to Handles requests library skillfully](https://stackabuse.com/the-python-requests-module/)
     ~~descided to switch to [urllib3](https://urllib3.readthedocs.io/en/latest/user-guide.html) module because of more rhobustness. '

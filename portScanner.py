@@ -34,13 +34,13 @@ def port_scanner(target, port):
 
 def point_function(target):
     scanned_ports = []
-    port_numbers = [21, 22, 23, 24, 80, 443, 55080, 11009, 4050, 6667]
+    port_numbers = [21, 22, 23, 24, 80, 81, 8080, 8081, 443, 55080, 11009, 4050, 6667]
     start_time = time.time()
     print(f'Scan Started: {time.ctime()}')
     target = target.split("//")[-1].split("/")[0].replace("www.", " ").strip()
     for ports in port_numbers:
         result = port_scanner(target, ports)
-        # time.sleep(1)
+        time.sleep(1)
         if result:
             scanned_ports.append(result)
 
@@ -51,6 +51,8 @@ def point_function(target):
         print(tabulate(scanned_ports, headers=table_headers))
     else:
         error1 = "No open ports found."
+        # passing 443 by default if the port scan fails
+        scanned_ports = [['443', 'https']]
         print(error1)
     print("\nNumber of Ports open %s, Scan Finished in %.2f seconds\n" % (
         str(len(scanned_ports)), (end_time - start_time)))
@@ -58,4 +60,5 @@ def point_function(target):
     return scanned_ports
 
 
-point_function(target1)
+# point_function(target1)
+# scanned_ports = [['80', 'http'], ['443', 'https']]

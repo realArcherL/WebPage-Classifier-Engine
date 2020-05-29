@@ -3,10 +3,11 @@ from tabulate import tabulate
 import socket
 import socks
 
-# proxychains4 nmap -Pn -sT -v scyllabyeatabumx.onion
+"""
+proxychains4 nmap -Pn -sT -v scyllabyeatabumx.onion
+Made sure that only domain link is present. no 'https/https' and no '/'
 
-# Make sure that only domain link is present. no 'https/https' and no '/'
-target1 = 'https://3g2upl4pq6kufc4m.onion/'
+"""
 
 
 def port_scanner(target, port):
@@ -58,7 +59,3 @@ def point_function(target):
         str(len(scanned_ports)), (end_time - start_time)))
     print()
     return scanned_ports
-
-
-# point_function(target1)
-# scanned_ports = [['80', 'http'], ['443', 'https']]

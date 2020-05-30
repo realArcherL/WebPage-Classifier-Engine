@@ -30,7 +30,10 @@
     ~~descided to switch to [urllib3](https://urllib3.readthedocs.io/en/latest/user-guide.html) module because of more rhobustness. '
 6. ~~[threading with urlib3](https://stackoverflow.com/questions/3731379/example-urllib3-and-threading-in-python)~~
 
-7. [How to handle directory making in python](https://realpython.com/working-with-files-in-python/#making-directories)
+7. [How to handle directory making in python](https://realpython.com/working-with-files-in-python/#making-directories) [reading dictionaries back with eval function](https://stackoverflow.com/questions/11026959/writing-a-dict-to-txt-file-and-reading-it-back)
+
+8. [Might switch to SQLITE](https://pythonspot.com/python-database-programming-sqlite-tutorial/)
+
 
 ### Literature review
 *Answers why a threaded port scanner won't work for port on websites. We need to thread the operations*

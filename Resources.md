@@ -47,3 +47,8 @@
 
 ### STAGE 2 CLssification based on Text (Help to determine what is it which is being talked about)
 [Industrial classification of WebPages](https://towardsdatascience.com/industrial-classification-of-websites-by-machine-learning-with-hands-on-python-3761b1b530f1)
+
+
+### HTML code analysis
+1. [extract info based on HTML tags](http://ijcsit.com/docs/Volume%207/vol7issue2/ijcsit2016070218.pdf)
+2. [HTML tags fature extraction](https://www.researchgate.net/publication/220419545_Webpage_Classification_based_on_Compound_of_Using_HTML_Features_URL_Features_and_Features_of_Sibling_Pages)

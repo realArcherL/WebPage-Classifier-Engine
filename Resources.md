@@ -48,6 +48,8 @@
 ### STAGE 2 CLssification based on Text (Help to determine what is it which is being talked about)
 [Industrial classification of WebPages](https://towardsdatascience.com/industrial-classification-of-websites-by-machine-learning-with-hands-on-python-3761b1b530f1)
 
+2. [language detection](https://spacy.io/universe/project/spacy_cld)
+3. [Term Extractor](https://github.com/kevinlu1248/pyate)
 
 ### HTML code analysis
 1. [extract info based on HTML tags](http://ijcsit.com/docs/Volume%207/vol7issue2/ijcsit2016070218.pdf)

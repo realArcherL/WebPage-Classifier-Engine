@@ -50,6 +50,7 @@
 
 2. [language detection](https://spacy.io/universe/project/spacy_cld)
 3. [Term Extractor](https://github.com/kevinlu1248/pyate)
+4. [Beautiul Soup tutorial](https://www.pluralsight.com/guides/extracting-data-html-beautifulsoup)
 
 ### HTML code analysis
 1. [extract info based on HTML tags](http://ijcsit.com/docs/Volume%207/vol7issue2/ijcsit2016070218.pdf)

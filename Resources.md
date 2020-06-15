@@ -56,6 +56,9 @@
 1. [extract info based on HTML tags](http://ijcsit.com/docs/Volume%207/vol7issue2/ijcsit2016070218.pdf)
 2. [HTML tags fature extraction](https://www.researchgate.net/publication/220419545_Webpage_Classification_based_on_Compound_of_Using_HTML_Features_URL_Features_and_Features_of_Sibling_Pages)
 
+### Text analysis
+1. [detect language](https://pypi.org/project/langdetect/)
+
 ### Example of what I am trying to build
 1. https://www.site24x7.com/tools/server-header.html
 2. https://www.webtoolhub.com/tn561389-web-page-analyzer.aspx -> Web Page analyzer

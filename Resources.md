@@ -61,7 +61,9 @@
 
 2. Spacy answer on entity and object [extraction](https://stackoverflow.com/questions/39763091/how-to-extract-subjects-in-a-sentence-and-their-respective-dependent-phrases)
 
-3. Email ID and Phone number extraction. Phone number extraction.
+3. Email ID and Phone number extraction. Phone number extraction [here](http://mlreference.com/token-classes-spacy).
+
+4. Companring set and a list [here](https://stackoverflow.com/questions/38158577/checking-if-any-strings-in-one-list-are-a-substring-in-another-list) 
 
 ### Example of what I am trying to build
 1. https://www.site24x7.com/tools/server-header.html

@@ -61,6 +61,8 @@
 
 2. Spacy answer on entity and object [extraction](https://stackoverflow.com/questions/39763091/how-to-extract-subjects-in-a-sentence-and-their-respective-dependent-phrases)
 
+3. Email ID and Phone number extraction. Phone number extraction.
+
 ### Example of what I am trying to build
 1. https://www.site24x7.com/tools/server-header.html
 2. https://www.webtoolhub.com/tn561389-web-page-analyzer.aspx -> Web Page analyzer

@@ -47,3 +47,24 @@
 
 ### STAGE 2 CLssification based on Text (Help to determine what is it which is being talked about)
 [Industrial classification of WebPages](https://towardsdatascience.com/industrial-classification-of-websites-by-machine-learning-with-hands-on-python-3761b1b530f1)
+
+2. [language detection](https://spacy.io/universe/project/spacy_cld)
+3. [Term Extractor](https://github.com/kevinlu1248/pyate)
+4. [Beautiul Soup tutorial](https://www.pluralsight.com/guides/extracting-data-html-beautifulsoup)
+
+### HTML code analysis
+1. [extract info based on HTML tags](http://ijcsit.com/docs/Volume%207/vol7issue2/ijcsit2016070218.pdf)
+2. [HTML tags fature extraction](https://www.researchgate.net/publication/220419545_Webpage_Classification_based_on_Compound_of_Using_HTML_Features_URL_Features_and_Features_of_Sibling_Pages)
+
+### Text analysis
+1. [detect language](https://pypi.org/project/langdetect/)
+
+2. Spacy answer on entity and object [extraction](https://stackoverflow.com/questions/39763091/how-to-extract-subjects-in-a-sentence-and-their-respective-dependent-phrases)
+
+3. Email ID and Phone number extraction. Phone number extraction [here](http://mlreference.com/token-classes-spacy).
+
+4. Companring set and a list [here](https://stackoverflow.com/questions/38158577/checking-if-any-strings-in-one-list-are-a-substring-in-another-list) 
+
+### Example of what I am trying to build
+1. https://www.site24x7.com/tools/server-header.html
+2. https://www.webtoolhub.com/tn561389-web-page-analyzer.aspx -> Web Page analyzer

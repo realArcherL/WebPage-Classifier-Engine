@@ -216,6 +216,6 @@ def web_classifier_core(path, path_parent):
         except Exception as ex:
             print(ex)
 
-
+        print("Completed")
 # will be called by point function
 # web_classifier_core('2020-06-15_15/downloaded.json', '2020-06-15_15')

@@ -4,6 +4,7 @@ import concurrent.futures
 import time
 import pathlib
 import portScanner
+import webpageclassifier
 
 proxies = {
     'http': 'socks5h://127.0.0.1:9050',
@@ -57,6 +58,15 @@ list4 = {
     'http://3g2upl4pq6kufc4m.onion/',
 }
 
+list_5 = {
+    'http://lite.cnn.com/en/article/h_84b6dc134d68161f7ef6b1167d21eee4',
+    'https://towardsdatascience.com/industrial-classification-of-websites-by-machine-learning-with-hands-on-python-3761b1b530f1',
+    'https://duckduckgo.com/',
+    'http://www.stce.be/movies/',
+    'https://www.google.com/search?client=firefox-b-d&q=indexof%3A%2F+movies',
+    'https://www.indiatoday.in/news.html'
+}
+
 
 def web_page_downloader(target):
     scanned_ports = portScanner.point_function(target)
@@ -67,9 +77,8 @@ def web_page_downloader(target):
         if service == 'http':
             url = f'{target.replace("https://", "http://")}:{port}'
         # extra step to ensure if any link comes as http
-        elif service == 'https':
-            url = f'{target.replace("http://", "https://")}:{port}'
-
+        if service == 'https':
+            url = f'{target.replace("http://", "https://")}'
         try:
             req = requests.get(url=url, proxies=proxies, timeout=20)
             status_code = req.status_code
@@ -87,8 +96,8 @@ def web_page_downloader(target):
                 'port': port,
                 'is_redirect': is_redirect,
                 'html_response': status_code,
-                'headers_path': f'{path_html}/{url.replace("/", "_")}.html',
-                'html_path': f'{path_headers}/{url.replace("/", "_")}_header.json',
+                'html_path': f'{path_html}/{url.replace("/", "_")}.html',
+                'headers_path': f'{path_headers}/{url.replace("/", "_")}_header.json',
                 'image_path': f'{path_headers}/{url.replace("/", "_")}.png'
             }
 
@@ -101,14 +110,15 @@ def web_page_downloader(target):
             with open(path_headers / f'{url.replace("/", "_")}_header.json', 'w+') as file3:
                 json.dump(dict(headers), file3)
 
-            if pathlib.Path.exists(path_parent/'final.json'):
-                with open(path_parent / 'final.json', 'r+') as file2:
+            # making the downloader json file.
+            if pathlib.Path.exists(path_parent / 'downloaded.json'):
+                with open(path_parent / 'downloaded.json', 'r+') as file2:
                     dict_final = json.load(file2)
                     dict_final.append(output_for_processing)
                     file2.seek(0)
                     json.dump(dict_final, file2)
             else:
-                with open(path_parent / 'final.json', 'w+') as file3:
+                with open(path_parent / 'downloaded.json', 'w+') as file3:
                     json.dump([output_for_processing], file3)
 
         except Exception as e:
@@ -125,16 +135,21 @@ def point_function(url_list):
     path_headers.mkdir(parents=True, exist_ok=True)
 
     start_time = time.perf_counter()
-    with concurrent.futures.ThreadPoolExecutor(10) as executor:
+    # let the threadPool descide for the number of threads it wants to run
+    with concurrent.futures.ThreadPoolExecutor() as executor:
         executor.map(web_page_downloader, url_list)
     end_time = time.perf_counter()
     print(f'\n[{time.strftime("%H:%M:%S")}].... Program ended in {round(end_time - start_time, 2)} second(s)')
 
 
-# this main function is just for testing purposes
+# main function is just for testing purposes
 if __name__ == "__main__":
+    # read files from here
     try:
-        point_function(url_list=list2)
+        point_function(url_list=list_5)
     except KeyboardInterrupt:
         print("Press Ctr + C again")
         exit()
+
+    # call for the web page classifier and pass the file path
+    webpageclassifier.web_classifier_core(path_parent / 'downloaded.json', path_parent)

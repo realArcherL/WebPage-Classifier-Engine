@@ -1,0 +1,398 @@
+<html>
+    <head>
+        <title>Web-Classifier</title>
+        <style>
+/*            main CSS */
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html{
+                background-color: #fff;
+                color: #555;
+                font-family: 'Lato', 'Arial', sans-serif;
+                font-weight: 300;
+                font-size: 20px;
+                text-rendering: optimizeLegibility;
+                margin-left: 5px;
+}
+
+/*            resuable classes*/
+            .row{
+                max-width: 1140px;
+                margin: 0 auto;
+            }
+
+            h2 {
+                padding: 10;
+                margin-left: 0 auto;
+                width: 80%;
+                float: left;
+                margin-bottom: 40px;
+                position: relative
+            }
+
+            .date{
+                float: left;
+                margin-left: 20px;
+                padding: 5px;
+                position: absolute;
+                right: 14%;
+                top: 7%;
+                font-size: 20px;
+                font-style: oblique
+            }
+/*            GRID*/
+            .span_2_of_2 {
+	           width: 100%;
+            }
+
+            .span_1_of_2 {
+	           width: 49.2%;
+            }
+
+
+            /*  SECTIONS  ============================================================================= */
+
+            .section {
+	           clear: both;
+	           padding: 0px;
+	           margin: 0px;
+}
+
+            /*  GROUPING  ============================================================================= */
+
+
+            .group:before,
+            .group:after {
+                content:"";
+                display:table;
+            }
+            .group:after {
+                clear:both;
+            }
+            .group {
+                zoom:1; /* For IE 6/7 (trigger hasLayout) */
+            }
+
+            /*  GRID COLUMN SETUP   ==================================================================== */
+
+            .col {
+                display: block;
+                float:left;
+                margin: 1% 0 1% 1.6%;
+            }
+
+            .col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+
+
+            /*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
+
+            @media only screen and (max-width: 480px) {
+                .col {
+                    margin: 1% 0 1% 0%;
+                }
+            }
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span_2_of_2 {
+		width: 100%;
+	}
+	.span_1_of_2 {
+		width: 100%;
+	}
+}
+
+/*            Navigation CSS*/
+            .nav{
+                margin: 0.1px;
+                border: 1px solid white;
+            }
+            .nav li a{
+                display: block;
+                color: #fdfdfd;
+                padding: 14px 16px;
+                text-align: center;
+                text-decoration: none;
+            }
+            .nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #575454;
+            }
+
+            .nav li{
+                float: left;
+            }
+
+            .nav li a:hover:not(.active){
+                background-color: #6f5b5b;
+            }
+
+            .nav .active{
+                background-color: #48698b;
+            }
+/*        Images    */
+            .image-storage {
+                width: 35%;
+                margin: 0;
+                float: left;
+                background-color: rgba(180, 180, 180, 0.24);
+                padding-bottom: 10px;
+                margin-bottom: 40px;
+            }
+            .image-storage img {
+                height: 250;
+                width: 400;
+                margin-top: 30px;
+                margin-left: 12.5%;
+                transition: 0.2s;
+                border: 1px solid #575454;
+
+            }
+
+            .image-storage img:hover{
+                transform: scale(1.25);
+            }
+
+            .description{
+                padding: 15px;
+                text-align: center;
+                font-size: 16px;
+                width: 100%;
+            }
+
+/*            Text*/
+            .text-storage{
+                float: left;
+                width: 65%;
+                padding-left: 5px;
+            }
+
+            .text-storage li {
+                display: inline-block;
+            }
+
+/*            BUTTON*/
+            .btn:link,
+            .btn:visited
+            {
+                display: inline-block;
+                padding: 5px 20px;
+                font-size: 14px;
+                text-decoration: none;
+                border-radius: 200px;
+                background-color: #48698b;
+                color: white;
+                transition: background-color 0.2s, border 0.2s, color 0.2s;
+            }
+
+            .btn-full:link,{
+                background-color: #48698b;
+                border: 1px solid #48698b;
+                color: #fff;
+                margin-right: 15px;
+            }
+
+            .btn-ghost:link,
+            .btn-ghost:visited{
+                color: White;
+                padding: 5px;
+                margin-bottom: 5px;
+            }
+
+            .btn-full:hover,
+            .btn-full:active{
+                border: 1px solid #e622b9;
+                background-color: coral;
+            }
+
+            .btn-ghost:hover,
+            .btn-ghost:active{
+                background-color: red;
+                color: #fff;
+            }
+
+        </style>
+    </head>
+    <body>
+<!--        NAVIGATION BAR HTML-->
+        <header>
+            <div class="nav">
+                <nav>
+                    <ul>
+                        <li><a href="#">WebPage-Classifier</a></li>
+                        <li><a href="#">Stats</a></li>
+                        <li style="float: right"><a class="active" href="#about"> About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+<!--Heading and date & time-->
+        <h2 align="center">Total number of results: {} </h2><br>
+        <div class="date">Date: {}<br> Time: {}</div>
+
+<!--IMAGE-->
+        <div class="section span_1_of_2 image-storage">
+            <a href="test_image.png" target="_blank">
+                <img src="test_image.png" alt="Screenshot">
+            </a>
+<!--Caption-->
+            <div class="section description">
+                <a class="btn btn-ghost" href="#">Javascript enabled: {}</a>
+                <a class="btn btn-ghost" style="background: #eb00ff" href="#">Interest Value: {}</a>
+                <a class="btn btn-ghost" style="background: #199b19" href="#">Port: {}</a>
+                <a class="btn btn-ghost" href="#">&nbsp;Is redirect: {}</a>
+                <a class="btn btn-ghost" style="background: #4747e0" href="#URL">Open Link {}</a>
+                </div>
+        </div>
+
+<!--Text Body-->
+        <div class="span_1_of_2 text-storage">
+            <h4 align="centre"> URL: {}}<br></h4>
+
+            <a class="btn btn-full" id="bt1" onclick="showText('text1', 'bt1')" href="javascript:void(0);">List of Geo-locations</a>
+            <a class="btn btn-full" id="bt2" onclick="showText('text2', 'bt2')" href="javascript:void(0);">List of Emails</a>
+            <a class="btn btn-full" id="bt3" onclick="showText('text3', 'bt3')" href="javascript:void(0);">List of Persons</a>
+            <a class="btn btn-full" id="bt4" onclick="showText('text4', 'bt4')" href="javascript:void(0);">List of Dates</a>
+            <a class="btn btn-full" id="bt5" onclick="showText('text5', 'bt5')" href="javascript:void(0);">List of Organization</a>
+            <a class="btn btn-full" id="bt6" onclick="showText('text6', 'bt6')" href="javascript:void(0);">Headers</a>
+            <a class="btn btn-full" id="bt7" onclick="showText('text7', 'bt7')" href="javascript:void(0);">Major Keywords</a>
+
+            <div id="text7" style="display: none">
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+            world is good 1.233<br>
+
+            </div>
+
+
+
+            <script language="JavaScript">
+                function showText(id, btid){
+                    var x = document.getElementById(id);
+                    if (x.style.display === "none"){
+                        x.style.display = "block";
+                        document.getElementById(btid).style.backgroundColor = "#f25c5c";
+                    } else{
+                        x.style.display = "none";
+                        document.getElementById(btid).style.backgroundColor = "#48698b";
+                    }
+                }
+            </script>
+
+            <div id="text1" style="display:none;">
+                <p><b>List Of Geo-locations:</b></p><ul>
+                <li>india,</li>
+                <li>Delhi,</li>
+                <li>Maharastra,</li>
+                <li>Gujrat,</li>
+                <li>Kausal,</li>
+                <li>Daman and Diue,</li>
+                <li>Indore,</li>
+                <li>Noida,</li>
+                <li>Ghaziabad,</li>
+                <li>Gorakpur,</li>
+                </ul>
+            </div>
+        <div id="text2" style="display:none;">
+                <p><b>List Of Emails:</b></p><ul>
+                <li>sdjhfg@ty.com</li>
+                <li>sheety</li>
+                <li>Some Place</li>
+                <li>Some Place 2</li>
+                <li>Some Place 3</li>
+                <li>Some Place 4</li>
+                <li>Some Place 5</li>
+                <li>Some Place 6</li>
+                </ul>
+            </div>
+        <div id="text3" style="display:none;">
+                <p><b>List Of Persons</b></p><ul>
+                <li>sdjhfg@ty.com</li>
+                <li>road</li>
+                <li>Some Place</li>
+                <li>Some Place 2</li>
+                <li>Some Place 3</li>
+                <li>Some Place 4</li>
+                <li>Some Place 5</li>
+                <li>Some Place 6</li>
+                </ul>
+            </div>
+        <div id="text4" style="display:none;">
+                <p><b>List Of Dates:</b></p><ul>
+                <li>sdjhfg@ty.com</li>
+                <li>road</li>
+                <li>Some Place</li>
+                <li>Some Place 2</li>
+                <li>Some Place 3</li>
+                <li>Some Place 4</li>
+                <li>Some Place 5</li>
+                <li>Some Place 6</li>
+                </ul>
+            </div>
+        <div id="text5" style="display:none;">
+                <p><b>List Of Organisations</b></p><ul>
+                <li>sdjhfg@ty.com</li>
+                <li>road</li>
+                <li>Some Place</li>
+                <li>Some Place 2</li>
+                <li>Some Place 3</li>
+                <li>Some Place 4</li>
+                <li>Some Place 5</li>
+                <li>Some Place 6</li>
+                </ul>
+            </div>
+
+        </div>
+
+
+
+        <div class="section span_2_of_2 image-storage">
+                <a href="test_image.png" target="_blank">
+                <img src="test_image.png" alt="Screenshot">
+                </a>
+                <div class="col description">Host Name: {} Javascript enabled: {} Intersest Value: {}</div>
+        </div>
+<!--        Text Body-->
+        <div class="span_2_of_2 text-storage">
+            Some matched text here next to the image-storage.
+        </div>
+
+
+    </body>
+</html>

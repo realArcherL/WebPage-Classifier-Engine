@@ -1,6 +1,5 @@
 import json
 import html2text
-from langdetect import detect_langs
 import spacy
 import pyate
 import pathlib
@@ -91,13 +90,13 @@ def test_on_html(html_path):
 
     # text to code comparison
     h = html2text.HTML2Text()
-    h.ignore_links = False
+    h.ignore_links = True
     try:
         text = h.handle(html_content).replace("\n", "")
     except Exception as e:
         text = " "
         print(e)
-
+    # print(text)
     text_to_code_percent = round(len(text) / len(html_content), 2)
     if text_to_code_percent <= 0.20:
         interesting_meter = interesting_meter + 1
@@ -112,31 +111,40 @@ def test_on_html(html_path):
 
 def information_extraction(text):
     # detect language
-    languages_detected = detect_langs(text)
 
     # gather information
     nlp = spacy.load('en_core_web_lg')
 
-    # WORK REQUIRED HERE
+    # directory where the keywords list is stored.
     # Country Keywords LIST, add the value to a text file and not here. also make the user type everything in Lowercase.
-    country_keywords = ['India']
-    person_keywords = ['Modi']
-    dates_keywords = ['yesterday']
-    org_keywords = ['IIM']
-    emails_keywords = ['asd@gmail.com']
+    directory_list = pathlib.Path(f'Key_List')
 
-    doc = nlp(text)
+    with open(directory_list / 'location_list') as location_list_file:
+        location_keywords = location_list_file.read().splitlines()
 
-    country = set()
+    with open(directory_list / 'person_list') as person_list_file:
+        person_keywords = person_list_file.read().splitlines()
+
+    with open(directory_list / 'dates_list') as dates_list_file:
+        dates_keywords = dates_list_file.read().splitlines()
+
+    with open(directory_list / 'org_list') as org_list_file:
+        org_keywords = org_list_file.read().splitlines()
+
+    with open(directory_list / 'emails_list') as emails_list_file:
+        emails_keywords = emails_list_file.read().splitlines()
+
+    location = set()
     person = set()
     dates = set()
     org = set()
     emails = set()
 
+    doc = nlp(text)
     # Extracting the name of countries, organisations, DATES and organisation
     for entity in doc.ents:
         if entity.label_ == 'GPE':
-            country.add(entity.text.lower())
+            location.add(entity.text.lower())
         elif entity.label_ == 'PERSON':
             person.add(entity.text.lower())
         elif entity.label_ == 'DATE':
@@ -145,29 +153,33 @@ def information_extraction(text):
             org.add(entity.text.lower())
 
     # updating interest values
-    interest_value = list_value_matcher(country, country_keywords)
+    interest_value = list_value_matcher(location, location_keywords)
     interest_value = interest_value + list_value_matcher(person, person_keywords)
     interest_value = interest_value + list_value_matcher(dates, dates_keywords)
     interest_value = interest_value + list_value_matcher(org, org_keywords)
     interest_value = interest_value + list_value_matcher(emails, emails_keywords)
 
     # extracting keywords
-    combo_basic = pyate.combo_basic(text).sort_values(ascending=False)
+    try:
+        combo_basic = pyate.combo_basic(text).sort_values(ascending=False)
+        phrase_list = combo_basic.index.tolist()
+    except Exception as ex:
+        print(ex)
+        phrase_list = ['Text too small to analyze']
 
     # extraction emails
     for token in doc:
         if token.like_email:
-            emails.add(token)
+            emails.add(token.text)
 
     data_extraction = {
-        'Country_list': list(country),
+        'location_list': list(location),
         'person_list': list(person),
         'dates_list': list(dates),
         'organisation_list': list(org),
         'emails_list': list(emails),
-        'combo_basic': combo_basic.to_json()
+        'combo_basic': phrase_list
     }
-
     return data_extraction, interest_value
 
 
@@ -175,6 +187,7 @@ def information_extraction(text):
 
 # the argument here will the URL query (first Json dictionary)
 def web_classifier_core(path, path_parent):
+    print('Classifying web Page')
     path_parent = pathlib.Path(path_parent)
     # will be handled by point function
     with open(path, 'r+') as download_json:
@@ -216,6 +229,8 @@ def web_classifier_core(path, path_parent):
         except Exception as ex:
             print(ex)
 
-        print("Completed")
+    print("web pages classified")
+
+
 # will be called by point function
-# web_classifier_core('2020-06-15_15/downloaded.json', '2020-06-15_15')
+# web_classifier_core('test.json', '2020-06-23_16/Images')

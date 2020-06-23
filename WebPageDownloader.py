@@ -5,6 +5,7 @@ import time
 import pathlib
 import portScanner
 import webpageclassifier
+import webPageAnalyzer
 
 proxies = {
     'http': 'socks5h://127.0.0.1:9050',
@@ -23,49 +24,6 @@ path_images = pathlib.Path(path1)
 path_parent = pathlib.Path(parent_directory)
 path_html = pathlib.Path(path2)
 path_headers = pathlib.Path(path3)
-
-list = {
-    'https://github.com',
-    'http://github.com',
-    'https://google.com',
-    'https://facebook.com',
-    'https://duckduckgo.com',
-    'https://guimp.com',
-
-}
-list2 = {
-    'http://3g2upl4pq6kufc4m.onion/',
-    'http://zqktlwi4fecvo6ri.onion/wiki/index.php/Main_Page',
-    'http://idnxcnkne4qt76tg.onion',
-    'http://torlinkbgs6aabns.onion',
-    'http://jh32yv5zgayyyts3.onion',
-    'http://wikitjerrta4qgz4.onion',
-    'http://xdagknwjc7aaytzh.onion',
-    'http://2vlqpcqpjlhmd5r2.onion',
-    'http://nlmymchrmnlmbnii.onion',
-    'http://wiki5kauuihowqi5.onion',
-    'http://j6im4v42ur6dpic3.onion',
-    'http://p3igkncehackjtib.onion',
-    'http://kbhpodhnfxl3clb4.onion',
-    'http://cipollatnumrrahd.onion'
-}
-
-list3 = {
-    'https://idnxcnkne4qt76tg.onion'
-}
-
-list4 = {
-    'http://3g2upl4pq6kufc4m.onion/',
-}
-
-list_5 = {
-    'http://lite.cnn.com/en/article/h_84b6dc134d68161f7ef6b1167d21eee4',
-    'https://towardsdatascience.com/industrial-classification-of-websites-by-machine-learning-with-hands-on-python-3761b1b530f1',
-    'https://duckduckgo.com/',
-    'http://www.stce.be/movies/',
-    'https://www.google.com/search?client=firefox-b-d&q=indexof%3A%2F+movies',
-    'https://www.indiatoday.in/news.html'
-}
 
 
 def web_page_downloader(target):
@@ -144,12 +102,18 @@ def point_function(url_list):
 
 # main function is just for testing purposes
 if __name__ == "__main__":
+    with open('list_url', 'r+') as urls_file:
+        list_urls = urls_file.read().splitlines()
+
     # read files from here
     try:
-        point_function(url_list=list_5)
+        point_function(url_list=list_urls)
     except KeyboardInterrupt:
         print("Press Ctr + C again")
         exit()
 
     # call for the web page classifier and pass the file path
     webpageclassifier.web_classifier_core(path_parent / 'downloaded.json', path_parent)
+    webPageAnalyzer.point_function(path_parent)
+
+    print("=[Program Complete]=")

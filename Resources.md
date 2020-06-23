@@ -65,6 +65,8 @@
 
 4. Companring set and a list [here](https://stackoverflow.com/questions/38158577/checking-if-any-strings-in-one-list-are-a-substring-in-another-list) 
 
+5. Sorting the data of the json [here](https://stackoverflow.com/questions/45266754/sorting-a-json-file-by-a-certain-key)
+
 ### Example of what I am trying to build
 1. https://www.site24x7.com/tools/server-header.html
 2. https://www.webtoolhub.com/tn561389-web-page-analyzer.aspx -> Web Page analyzer

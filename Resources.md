@@ -70,3 +70,7 @@
 ### Example of what I am trying to build
 1. https://www.site24x7.com/tools/server-header.html
 2. https://www.webtoolhub.com/tn561389-web-page-analyzer.aspx -> Web Page analyzer
+
+### installation
+python -m spacy download en_core_web_sm
+python -m spacy download en_core_web_lg

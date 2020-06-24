@@ -234,4 +234,4 @@ def web_classifier_core(path, path_parent):
 
 
 # will be called by point function
-web_classifier_core('2020-06-23_18/downloaded.json', '2020-06-23_18/Images')
+# web_classifier_core('2020-06-23_18/downloaded.json', '2020-06-23_18/Images')

@@ -384,4 +384,4 @@ def point_function(path):
     print('report_generated')
 
 
-# point_function('2020-06-23_16')
+point_function('2020-06-23_18/Images/')

@@ -92,7 +92,8 @@ def test_on_html(html_path):
     h = html2text.HTML2Text()
     h.ignore_links = True
     try:
-        text = h.handle(html_content).replace("\n", "")
+        text = h.handle(html_content).replace('![', " ").replace(']', ' ').replace('--', '-').replace('*', ' ').replace(
+            '__', '').replace("\n", "").replace('**', ' ').replace('*(', ' ')
     except Exception as e:
         text = " "
         print(e)
@@ -233,4 +234,4 @@ def web_classifier_core(path, path_parent):
 
 
 # will be called by point function
-# web_classifier_core('test.json', '2020-06-23_16/Images')
+web_classifier_core('2020-06-23_18/downloaded.json', '2020-06-23_18/Images')

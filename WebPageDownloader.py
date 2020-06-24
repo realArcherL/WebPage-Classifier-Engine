@@ -93,7 +93,7 @@ def point_function(url_list):
     path_headers.mkdir(parents=True, exist_ok=True)
 
     start_time = time.perf_counter()
-    # let the threadPool descide for the number of threads it wants to run
+    # let the threadPool decide for the number of threads it wants to run
     with concurrent.futures.ThreadPoolExecutor() as executor:
         executor.map(web_page_downloader, url_list)
     end_time = time.perf_counter()
@@ -112,8 +112,9 @@ if __name__ == "__main__":
         print("Press Ctr + C again")
         exit()
 
-    # call for the web page classifier and pass the file path
+    # call for the web page classifier and pass the file path.
     webpageclassifier.web_classifier_core(path_parent / 'downloaded.json', path_parent)
+    # report generation.
     webPageAnalyzer.point_function(path_parent)
 
     print("=[Program Complete]=")

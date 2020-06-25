@@ -281,9 +281,10 @@ def html_maker(content, path):
                     </div></div>'''
 
         # image-data
+        image_path = 'Images/' + query['image_path'][query['image_path'].find(" "):].strip()
         image_html = f'''<div class="section span_1_of_2 image-storage">
-                <a href="{query['image_path']}" target="_blank">
-                    <img src="{query['image_path']}" alt="{query['image_path']}">
+                <a href="{image_path}" target="_blank">
+                    <img src="{image_path}" alt="{image_path}">
                 </a>'''
 
         # opening html
@@ -397,3 +398,4 @@ def point_function(path):
 
 
 # point_function('2020-06-23_18/Images/')
+

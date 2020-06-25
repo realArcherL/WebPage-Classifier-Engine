@@ -29,6 +29,8 @@ def port_scanner(target, port):
     except Exception as exception:
         print(f'[{time.strftime("%H:%M:%S")}]....{target}:{port} ==> {exception}')
         pass
+    s.shutdown(socket.SHUT_RDWR)
+    s.close()
     return port_service_couple
 
 
@@ -50,7 +52,7 @@ def point_function(target):
                         20720, 28017]
 
     tor_port_numbers = [21, 22, 23, 24, 80, 81, 8080, 8081, 8443, 443, 55080, 11009, 4050, 6667]
-    test_port_numbers = [81, 80, 443, 21]
+    test_port_numbers = [80]
 
     start_time = time.time()
     target = target.split("//")[-1].split("/")[0].replace("www.", " ").strip()

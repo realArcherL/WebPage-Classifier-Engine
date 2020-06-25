@@ -82,3 +82,5 @@ python -m spacy download en_core_web_lg
 1. [headless screenshot taker.](https://pythonbasics.org/selenium-screenshot/)
 
 2. tor with selenium [here](https://stackoverflow.com/questions/51705998/python-selenium-using-tor-to-get-proxies-works-for-firefox-but-doesnt-work-for)
+
+3. chromium driver guide [here](https://stackoverflow.com/questions/38044206/selenium-webdrive-socket-error)

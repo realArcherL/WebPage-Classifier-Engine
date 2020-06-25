@@ -76,3 +76,7 @@
 ### installation
 python -m spacy download en_core_web_sm
 python -m spacy download en_core_web_lg
+
+### How to take screenshot with selenium.
+
+1. [headless screenshot taker.](https://pythonbasics.org/selenium-screenshot/)

@@ -25,7 +25,7 @@ def list_maker(list_value, what_list, tag_id):
 
 
 def html_maker(content, path):
-    css_data ='''<html>
+    css_data = '''<html>
     <head>
         <title>Web-Classifier</title>
         <style>
@@ -274,7 +274,7 @@ def html_maker(content, path):
         # meta-data
         meta_string = f'''<div class="section description">
                     <a class="btn btn-ghost" href="#">Javascript enabled: {query['script']}</a>
-                    <a class="btn btn-ghost" style="background: #eb00ff" href="#">Interest Value: {round(query['interest'],2)}</a>
+                    <a class="btn btn-ghost" style="background: #eb00ff" href="#">Interest Value: {round(query['interest'], 2)}</a>
                     <a class="btn btn-ghost" style="background: #199b19" href="#">Port: {query['port']}</a>
                     <a class="btn btn-ghost" href="#">&nbsp;Is redirect: {query['is_redirect']}</a>
                     <a class="btn btn-ghost" style="background: #4747e0" href="{query['url']}" target="_blank">Open Link</a>
@@ -287,7 +287,11 @@ def html_maker(content, path):
                 </a>'''
 
         # opening html
-        start_html = f'<div class="span_1_of_2 text-storage"><h4 align="centre"> URL: {query["url"]}<br></h4>'
+        if query['is_redirect']:
+            start_html = f'<div class="span_1_of_2 text-storage"><h4 align="centre"> URL: {query["url"]}<br>' \
+                         f'Redirected from: {query["image_path"][query["image_path"].find("__"):].replace("__", "https://").replace(".png", "")}</h4>'
+        else:
+            start_html = f'<div class="span_1_of_2 text-storage"><h4 align="centre"> URL: {query["url"]}<br></h4>'
 
         # location list
         tag_id = 'tag_' + str(text_counter)
@@ -337,6 +341,14 @@ def html_maker(content, path):
         button_counter += 1
         text_counter += 1
 
+        # # to add more options, just change the "based_on_functionality" in the below code"
+        # tag_id = 'tag_' + str(text_counter)
+        # button_id = 'btn_' + str(button_counter)
+        # data_string += list_maker(query['based_on_functionality'], 'based_on_functionality', tag_id) + '\n'
+        # button_string += button_maker(tag_id, button_id, 'based_on_functionality') + '\n'
+        # button_counter += 1
+        # text_counter += 1
+
         # headers
         tag_id = 'tag_' + str(text_counter)
         button_id = 'btn_' + str(button_counter)
@@ -384,4 +396,4 @@ def point_function(path):
     print('report_generated')
 
 
-# point_function('2020-06-23_18/Images/')
+point_function('2020-06-23_18/Images/')

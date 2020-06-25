@@ -25,6 +25,7 @@ def list_value_matcher(list_defination, list_keywords):
     # handling the null condition
     if len(list_defination) and length >= 1:
         list_keywords = map(lambda x: x.lower(), list_keywords)
+        # can be used for generating tags, as the variable present contains the names of the matched keywords.
         present = {i for i in list_keywords if any(j in i for j in list_defination)}
         return interest_calculator(len(present), length)
     else:
@@ -93,7 +94,7 @@ def test_on_html(html_path):
     h.ignore_links = True
     try:
         text = h.handle(html_content).replace('![', " ").replace(']', ' ').replace('--', '-').replace('*', ' ').replace(
-            '__', '').replace("\n", "").replace('**', ' ').replace('*(', ' ')
+            '__', ' ').replace("\n", "").replace('**', ' ').replace('*(', ' ')
     except Exception as e:
         text = " "
         print(e)
@@ -234,4 +235,4 @@ def web_classifier_core(path, path_parent):
 
 
 # will be called by point function
-# web_classifier_core('2020-06-23_18/downloaded.json', '2020-06-23_18/Images')
+web_classifier_core('2020-06-23_18/downloaded.json', '2020-06-23_18/Images')

@@ -67,6 +67,8 @@
 
 5. Sorting the data of the json [here](https://stackoverflow.com/questions/45266754/sorting-a-json-file-by-a-certain-key)
 
+6. [NLP](https://medium.com/@b.terryjack/nlp-pretrained-named-entity-recognition-7caa5cd28d7b)
+
 ### Example of what I am trying to build
 1. https://www.site24x7.com/tools/server-header.html
 2. https://www.webtoolhub.com/tn561389-web-page-analyzer.aspx -> Web Page analyzer

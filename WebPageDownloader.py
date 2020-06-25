@@ -6,6 +6,7 @@ import pathlib
 import portScanner
 import webpageclassifier
 import webPageAnalyzer
+import screenshot
 
 proxies = {
     'http': 'socks5h://127.0.0.1:9050',
@@ -56,14 +57,11 @@ def web_page_downloader(target):
                 'html_response': status_code,
                 'html_path': f'{path_html}/{url.replace("/", "_")}.html',
                 'headers_path': f'{path_headers}/{url.replace("/", "_")}_header.json',
-                'image_path': f'{path_headers}/{url.replace("/", "_")}.png'
+                'image_path': f'{path_images}/{url.replace("/", "_")}.png'
             }
 
             with open(path_html / f'{url.replace("/", "_")}.html', 'w+') as file1:
                 file1.write(html_code)
-
-            # with open(path_images / "file1.png", 'w+') as file2:
-            #     file2.write()
 
             with open(path_headers / f'{url.replace("/", "_")}_header.json', 'w+') as file3:
                 json.dump(dict(headers), file3)
@@ -112,6 +110,8 @@ if __name__ == "__main__":
         print("Press Ctr + C again")
         exit()
 
+    # screenshot
+    screenshot.screenshot_main(path_parent)
     # call for the web page classifier and pass the file path.
     webpageclassifier.web_classifier_core(path_parent / 'downloaded.json', path_parent)
     # report generation.

@@ -191,7 +191,7 @@ def information_extraction(text):
 def web_classifier_core(path, path_parent):
     print('Classifying web Page')
     path_parent = pathlib.Path(path_parent)
-    # will be handled by point function
+
     with open(path, 'r+') as download_json:
         content = json.load(download_json)
 
@@ -235,4 +235,4 @@ def web_classifier_core(path, path_parent):
 
 
 # will be called by point function
-web_classifier_core('2020-06-23_18/downloaded.json', '2020-06-23_18/Images')
+# web_classifier_core('2020-06-23_18/downloaded.json', '2020-06-23_18/Images')

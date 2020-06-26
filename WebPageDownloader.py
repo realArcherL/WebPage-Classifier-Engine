@@ -6,7 +6,6 @@ import pathlib
 import portScanner
 import webpageclassifier
 import webPageAnalyzer
-import screenshot
 
 proxies = {
     'http': 'socks5h://127.0.0.1:9050',
@@ -117,5 +116,5 @@ if __name__ == "__main__":
     # report generation.
     webPageAnalyzer.point_function(path_parent)
 
-    print("=[Program Complete]=")
+    print("=[Taking Screenshots]=")
     # configure

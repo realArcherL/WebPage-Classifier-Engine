@@ -26,7 +26,7 @@ def screenshot_taker(url, path):
     profile.set_preference("network.proxy.socks_port", 9050)
     profile.set_preference("network.proxy.socks_remote_dns", True)
     profile.update_preferences()
-    driver = webdriver.Firefox(firefox_profile=profile, firefox_options=options)
+    driver = webdriver.Firefox(firefox_profile=profile, options=options)
 
     # common part
     driver.get(url)
@@ -49,8 +49,12 @@ if __name__ == '__main__':
     for query in content:
         url = query['url']
         path = (query['image_path']).replace(" ", "")
-        screenshot_taker(url, path)
+        try:
+            screenshot_taker(url, path)
+        except Exception as ex:
+            print(f'[=FAILED=],[{time.strftime("%H:%M:%S")}].....{ex}')
 
 # URL = 'http://nzh3fv6jc6jskki3.onion/'
-# point_function('2020-06-23_18/downloaded.json')
-# screenshot_taker(URL, 'web.png')
+
+# how to run
+# python3 scrennshot (foldername constaing json)

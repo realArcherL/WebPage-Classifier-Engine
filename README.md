@@ -4,7 +4,9 @@
 1. [Port Scanning](#port-scanning)
 2. [Web Page donwloading](#web-page-downloading)
 3. [Web Page Classifier](#web-page-classifier)
-        - [Headers](#headers)
+	- [Headers](#headers)
+	- [HTML](#html)
+	- [Text](#text)
 
 ### Introduction
 The main aim of WebPage-Classifier-Engine is to be able to access, identify, and evaluate the.onion or clearnet web pages based on the keywords provided by the user. In addition, web pages are also evaluated based on their HTML properties such as the `HTML to text ratio`, the existence of certain `HTML headers` in the HTTP response of the website. The program applies request-library to fetch webpages and Pysocks library to interact with the Tor Linux library. For the classification of webpages, Spacy (Natural Language Processing) was employed.
@@ -81,7 +83,9 @@ The core of the program, classifies the webpage based on three parameters, infor
 
 #### Headers
 
-```python def test_on_headers(path_header):```
+```python 
+def test_on_headers(path_header):
+```
 
 The HTTP response from any website is ranked on the basis of presence of these headers, hardcoded in the code [webpageclassifier.py](webpageclassifier.py) in an array.
 
@@ -93,9 +97,23 @@ The relevancy of selecting each header can be read on [MDN web records](https://
 
 #### HTML 
 
-``` python def test_on_html(html_path):```
+```python 
+def test_on_html(html_path):
+```
 
-The HTML score of the web page is calculated on the tags [feature extaction paper](http://ijcsit.com/docs/Volume%207/vol7issue2/ijcsit2016070218.pdf). Namely the HTML tags like ```html <img> <script> <input>``` are checked to determine if a webpage is a forum or a login page. This also, handles if a page throws a 404 response or 303. The other feature on which the ranking is determined is the `HTML:TEXT (ratio)`. Together all these constitute to points upto (2.0).
+The HTML score of the web page is calculated on the tags [feature extaction paper](http://ijcsit.com/docs/Volume%207/vol7issue2/ijcsit2016070218.pdf). Namely the HTML tags like `<img> <script> <input>` are checked to determine if a webpage is a forum or a login page. This also, handles if a page throws a 404 response or 303. The other feature on which the ranking is determined is the `HTML:TEXT (ratio)`. Together all these constitute to points upto (2.0). Its in this function the HTML content is converted in to just text using a markup library `html2text` and later returned to the text_extraction function.
+
+#### TEXT
+
+```python
+def information_extraction(text):
+```
+
+This is where all the information is extracted and most of the page ranking takes place. All keywords entered by the user are matched to extracted text using the NLP's name entity recognition making the process a lot faster than the regex script.
+
+``` A glitch was encountered with the Spacy NER (Name Entity Recognizer), it accounts cryptocurrency values (bitcoin, stellar etc) as locations or person.``` 
+
+Combo-Basic is also calculated on the text extracted, and is presented as key phrases in the final HTML report, `report.html`.
 
 
 

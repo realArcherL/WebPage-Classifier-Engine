@@ -1,7 +1,6 @@
 ## PROJECT WebPage-Classifier-Engine
 
 [Introduction](#introduction)
-[Installation](#installation)
 1. [Port Scanning](#port-scanning)
     - [Literature](#literature)
     - [Performance](#performance)
@@ -19,9 +18,13 @@ Download the tor library from your respective linux repository
 
 `sudo apt-get install tor`
 
-It would be wise to setup a virtual environment first and then installing the requirements.txt. Once the spacy=2.2.4  version has been installed, spacy English language models are need to be installed `en_core_web_lg` & `en_core_web_sm`. (It is essential languages are downloaded only after the requirements.txt has been installed, since the spacy=2.2.4 is required to run the project.)
+It would be wise to first set up a virtual environment and then install the requirements.txt. Once the `Spacy=2.2.4` has been installed, the spacy English language models must be installed `en_core_web_lg` & `en_core_web_sm`. (The essential language models are downloaded only after the requirements.txt has been installed, since the spacing=2.2.4 is required to run the project.)
 
-`python -m spacy en_core_web_lg`
+```bash
+python -m spacy en_core_web_lg
+```
 
-`python -m spacy en_core_web_sm`
+```bash
+python -m spacy en_core_web_sm
+```
 

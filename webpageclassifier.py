@@ -42,7 +42,7 @@ def test_on_headers(path_header):
 
     # checking if these headers are present in the file
     check_headers = ['Server', 'Content-Type', 'Last-Modified', 'Set-Cookie', 'WWW-Authenticate', 'Alt-Svc',
-                     'Content-Disposition']
+                     'Content-Disposition', 'Content-Security-Policy', 'Strict-Transport-Security', 'ETag']
     for headers in check_headers:
 
         if check_key(headers_dict, headers):

@@ -2,8 +2,6 @@
 
 [Introduction](#introduction)
 1. [Port Scanning](#port-scanning)
-    - [Literature](#literature)
-    - [Performance](#performance)
 2. [Web Page donwloading](#web-page-downloading)
     - [Html](#html)
     - [Headers](#headers)
@@ -30,5 +28,17 @@ python -m spacy en_core_web_lg
 python -m spacy en_core_web_sm
 ```
 
+### Usage
+The program can be run using the bash script `run.sh`.
+
+```bash
+bash run.sh
+```
+
+The script executes Webpagedownloader.py which prompts for the path of the file containing the list of urls. The full working can be understood below.
+
 ### Port Scanning
 Port scanning is performed via Pysocks library and only over selected ports, which is why port numbers are hard-coded port in the program itself. This is because tor has a protective mechanism in place that detects port scanning whenever an unrecognized port is accessed, thus considering the above-mentioned condition a time delay of one second was introduced while coding the part of the scanner and no threading was employed. This is based on the [(2019)research paper's](https://dl.acm.org/doi/pdf/10.1145/3339252.3341486?download=true) finding.
+
+### Web Page donwloading
+This being the parent script of all the scripts is called first when executing the `run.sh`. 

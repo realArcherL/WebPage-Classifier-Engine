@@ -7,6 +7,7 @@
 	- [Headers](#headers)
 	- [HTML](#html)
 	- [Text](#text)
+3. [Web Page Analyzer](#web-page-analyzer)
 
 ### Introduction
 The main aim of WebPage-Classifier-Engine is to be able to access, identify, and evaluate the.onion or clearnet web pages based on the keywords provided by the user. In addition, web pages are also evaluated based on their HTML properties such as the `HTML to text ratio`, the existence of certain `HTML headers` in the HTTP response of the website. The program applies request-library to fetch webpages and Pysocks library to interact with the Tor Linux library. For the classification of webpages, Spacy (Natural Language Processing) was employed.
@@ -115,6 +116,15 @@ This is where all the information is extracted and most of the page ranking take
 
 Combo-Basic is also calculated on the text extracted, and is presented as key phrases in the final HTML report, `report.html`.
 
+### Web Page Analyzer
+This is the function which gets executed after the `final_1.json` has been produced. The HTML and CSS code are embeded in the python file  [webPageAnalyzer.py](webPageAnalyzer.py).
+The CSS values of the webpage can be controlled using the function.
+
+```python
+def html_maker(content, path):
+```
+
+The final ouput of the program is `report.html`.
 
 
 

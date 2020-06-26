@@ -17,4 +17,11 @@ The main aim of WebPage-Classifier-Engine is to be able to access, identify, and
 ### Installation
 Download the tor library from your respective linux repository
 
-```sudo apt-get install tor```
+`sudo apt-get install tor`
+
+It would be wise to setup a virtual environment first and then installing the requirements.txt. Once the spacy=2.2.4  version has been installed, spacy English language models are need to be installed `en_core_web_lg` & `en_core_web_sm`. (It is essential languages are downloaded only after the requirements.txt has been installed, since the spacy=2.2.4 is required to run the project.)
+
+`python -m spacy en_core_web_lg`
+
+`python -m spacy en_core_web_sm`
+

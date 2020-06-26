@@ -30,3 +30,5 @@ python -m spacy en_core_web_lg
 python -m spacy en_core_web_sm
 ```
 
+### Port Scanning
+Port scanning is performed via Pysocks library and only over selected ports, which is why port numbers are hard-coded port in the program itself. This is because tor has a protective mechanism in place that detects port scanning whenever an unrecognized port is accessed, thus considering the above-mentioned condition a time delay of one second was introduced while coding the part of the scanner and no threading was employed. This is based on the [(2019)research paper's](https://dl.acm.org/doi/pdf/10.1145/3339252.3341486?download=true) finding.

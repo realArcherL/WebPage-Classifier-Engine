@@ -70,5 +70,5 @@ The `downloaded.json` (intial json downloads indexing which webpages were downlo
 The keys of the `downloaded.json` are subset of `final_1.json`. The keys(self-explanatory) of `final_1.json` are:
 
 ```json
-"url": "", "port": "", "is_redirect": True , "html_response": , "html_path": "2020-06-26_00/HTML/https:__{url}l", "headers_path": "2020-06-26_00/Headers/https:__{url}_header.json", "image_path": "2020-06-26_00/Images/https:__{url}.png", "script": false, "interest": 1.27, "location_list": [], "person_list": [], "dates_list": [], "organisation_list": [], "emails_list": [], "combo_basic": []}
+[{"url": "", "port": "", "is_redirect": True , "html_response": , "html_path": "2020-06-26_00/HTML/https:__{url}l", "headers_path": "2020-06-26_00/Headers/https:__{url}_header.json", "image_path": "2020-06-26_00/Images/https:__{url}.png", "script": false, "interest": 1.27, "location_list": [], "person_list": [], "dates_list": [], "organisation_list": [], "emails_list": [], "combo_basic": []}]
 ```

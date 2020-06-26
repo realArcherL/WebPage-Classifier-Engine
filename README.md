@@ -4,7 +4,7 @@
 1. [Port Scanning](#port-scanning)
 2. [Web Page donwloading](#web-page-downloading)
 3. [Web Page Classifier](#web-page-classifier)
-        - Headers(#headers)
+        - [Headers](#headers)
 
 ### Introduction
 The main aim of WebPage-Classifier-Engine is to be able to access, identify, and evaluate the.onion or clearnet web pages based on the keywords provided by the user. In addition, web pages are also evaluated based on their HTML properties such as the `HTML to text ratio`, the existence of certain `HTML headers` in the HTTP response of the website. The program applies request-library to fetch webpages and Pysocks library to interact with the Tor Linux library. For the classification of webpages, Spacy (Natural Language Processing) was employed.
@@ -45,6 +45,8 @@ Port scanning is performed via Pysocks library and only over selected ports, whi
 
 The ports identified running any webhosting scheme (http/https:) are pused to requests python library, which hits the end point and later processed by other functions.
 
+The port numbers selected on the basis of this [(2014)study](https://arxiv.org/pdf/1308.6768.pdf).
+
 ### Web Page donwloading
 This being the parent script of all the scripts is called first when executing the `run.sh`. The websites are downloaded in the hierarchy as follows.
 
@@ -76,6 +78,35 @@ The keys of the `downloaded.json` are subset of `final_1.json`. The keys(self-ex
 ### Web Page Classifier
 
 The core of the program, classifies the webpage based on three parameters, information reveal relevance (side-channels) and user provided parameters. 
+
+#### Headers
+
+```python def test_on_headers(path_header):```
+
+The HTTP response from any website is ranked on the basis of presence of these headers, hardcoded in the code [webpageclassifier.py](webpageclassifier.py) in an array.
+
+```python
+    check_headers = ['Server', 'Content-Type', 'Last-Modified', 'Set-Cookie', 'WWW-Authenticate', 'Alt-Svc',
+                     'Content-Disposition', 'Content-Security-Policy', 'Strict-Transport-Security', 'ETag']
+```
+The relevancy of selecting each header can be read on [MDN web records](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers). Based on these, which can be changed a simple ratio calculation is performed to determine the score the webpage must be provided with.
+
+#### HTML 
+
+``` python def test_on_html(html_path):```
+
+The HTML score of the web page is calculated on the tags [feature extaction paper](http://ijcsit.com/docs/Volume%207/vol7issue2/ijcsit2016070218.pdf). Namely the HTML tags like ```html <img> <script> <input>``` are checked to determine if a webpage is a forum or a login page. This also, handles if a page throws a 404 response or 303. The other feature on which the ranking is determined is the `HTML:TEXT (ratio)`. Together all these constitute to points upto (2.0).
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -35,7 +35,9 @@ The program can be run using the bash script `run.sh`.
 bash run.sh
 ```
 
-The script executes Webpagedownloader.py which prompts for the path of the file containing the list of urls. The full working can be understood below.
+The script will run [Webpagedownloader.py](WebPageDownloader.py), which will prompt for a file path containing a list of URLs. The package contains a folder called `Key_List` containing five text files. Files are used to specify keywords, if found in the html content, will be used to calculate the ranking of the pages.
+
+The full working can be understood below.
 
 ### Port Scanning
 Port scanning is performed via Pysocks library and only over selected ports, which is why port numbers are hard-coded port in the program itself. This is because tor has a protective mechanism in place that detects port scanning whenever an unrecognized port is accessed, thus considering the above-mentioned condition a time delay of one second was introduced while coding the part of the scanner and no threading was employed. This is based on the [(2019)research paper's](https://dl.acm.org/doi/pdf/10.1145/3339252.3341486?download=true) finding.

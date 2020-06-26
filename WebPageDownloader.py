@@ -99,7 +99,9 @@ def point_function(url_list):
 
 # main function is just for testing purposes
 if __name__ == "__main__":
-    with open('list_url', 'r+') as urls_file:
+    path = input("Enter the file path/name(if in same directory): ")
+    pathlib.Path(path)
+    with open(path, 'r+') as urls_file:
         list_urls = urls_file.read().splitlines()
 
     # read files from here

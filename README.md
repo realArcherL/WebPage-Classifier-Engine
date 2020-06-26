@@ -38,7 +38,7 @@ bash run.sh
 The script will run [WebPageDownloader.py](WebPageDownloader.py), which will prompt for a file path containing a list of URLs. The package contains a folder called [`Key_List`](Key_List) containing five text files. Files are used to specify keywords, if found in the html content, will be used to calculate the ranking of the pages.
 
 **Example :** [emails_list](Key_List/emails_list) has the keyword 'imam@gmail.com'. The program [webpageclassifier.py](webpageclassifier.py) when classifying the webpage will look
-for this particular email-id. Similarly for other lists. 
+for this particular email-id. Considering the find, the program will assign some more weight to the webpage the emailId was found in, in comparisson to the others it didn't find it in. Same goes with the other lists. 
 
 The full working can be understood below.
 

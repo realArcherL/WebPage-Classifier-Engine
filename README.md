@@ -1,6 +1,7 @@
 ## PROJECT WebPage-Classifier-Engine
 
 [Introduction](#introduction)
+[Installation](#installation)
 1. [Port Scanning](#port-scanning)
     - [Literature](#literature)
     - [Performance](#performance)
@@ -10,41 +11,10 @@
     - [image](#image)
 
 
-
 ### Introduction
-The project is basically to be able to create a core-classifier engine based on the paramteres like
-1. HTTP responses (200 OK, 404, 301 etc)
-2. What is the text, can it somehow be classified on that basis.
+The main aim of WebPage-Classifier-Engine is to be able to access, identify, and evaluate the.onion or clearnet web pages based on the keywords provided by the user. In addition, web pages are also evaluated based on their HTML properties such as the `HTML to text ratio`, the existence of certain `HTML headers` in the HTTP response of the website. The program applies request-library to fetch webpages and Pysocks library to interact with the Tor Linux library. For the classification of webpages, Spacy (Natural Language Processing) was employed.
 
-### Port Scanning
-#### Literature 
-Port scanning on the onion link will help one assess the number of services it's running and decide which service to connect to.
+### Installation
+Download the tor library from your respective linux repository
 
-The port_scanner is seperate function can be called without the need of calling the ```point_function()```.
-```python
-def port_scanner(target, port):
-    reverse_proxy = "127.0.0.1" # localhost.
-    tor_port = 9050 # can be 9150, depends on your configuration.
-
-    socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, reverse_proxy, tor_port, True)
-    socket.socket = socks.socksocket # Intialization of sockets for proxy.
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    timeout_value = 100
-
-    s.settimeout(timeout_value)
-```
-There is a reason why port scanning is performed on hardcoded port numbers, because the tor has a protection mechanism in place that rejects port scanning whenever an unrecognized port is accessed and thus above mentioned condition and a time delay was considered when coding the scanner part. This is based on the [(2019)research paper's](https://dl.acm.org/doi/pdf/10.1145/3339252.3341486?download=true) finding.
-The port numbers selected on the basis of this [(2014)study](https://arxiv.org/pdf/1308.6768.pdf) are mainly
-SSH, HTTP(80), Skynet(Botnet, 55080), Tor Chat(11009), IRC(6667).
-
-```
-    port_numbers = [21, 22, 23, 24, 80, 443, 55080, 11009, 4050, 6667]
-```
-#### Performance
-Threading was avoided when coding, due to tor protection, thus making scanning of the ports take an average of ~3.50 seconds to scan on the test computer, while the nmap search on the same ports would take almost ~15 seconds under identical conditions. Using nmap is a better and feasible choice, but the signature of the nmap script can be blocked and hence a separate script was written. The results can be compared to the same.
-
-![port_scanner.py](https://github.com/realArcherL/WebPage-Classifier-Engine/blob/master/Images/port_Scanner_final.png.png)
-
-![nmap scan](https://github.com/realArcherL/WebPage-Classifier-Engine/blob/master/Images/time_duck_nmap_selected.png)
-
-
+`sudo apt-get install tor`

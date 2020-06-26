@@ -18,7 +18,7 @@ Download the tor library from your respective linux repository
 sudo apt-get install tor
 ```
 
-It would be wise to first set up a virtual environment and then install the requirements.txt. Once the `Spacy=2.2.4` has been installed, the spacy English language models must be installed `en_core_web_lg` & `en_core_web_sm`. (The essential language models are downloaded only after the requirements.txt has been installed, since the spacing=2.2.4 is required to run the project.)
+It would be wise to first set up a virtual environment and then install the requirements.txt. Once the `Spacy=2.2.4` has been installed, the spacy English language models must be installed `en_core_web_lg` & `en_core_web_sm`. (The essential language models are downloaded only after the requirements.txt has been installed, since the `Spacy=2.2.4` is required to run the project.)
 
 ```bash
 python -m spacy en_core_web_lg

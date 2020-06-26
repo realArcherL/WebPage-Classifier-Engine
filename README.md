@@ -17,4 +17,4 @@ The main aim of WebPage-Classifier-Engine is to be able to access, identify, and
 ### Installation
 Download the tor library from your respective linux repository
 
-`sudo apt-get install tor`
+```sudo apt-get install tor```

@@ -114,7 +114,7 @@ if __name__ == "__main__":
     # screenshot
     # screenshot.screenshot_main(path_parent)
     # call for the web page classifier and pass the file path.
-    webpageclassifier.web_classifier_core(path_parent / 'downloaded.json', path_parent)
+    webpageclassifier.point_function(path_parent)
     # report generation.
     webPageAnalyzer.point_function(path_parent)
 

@@ -89,7 +89,7 @@ def test_on_html(html_path):
 
     # checking for javascript, hence the interesting meter is increased by 10
     if html_content.count("<script"):
-        script_flag = {'script': False}
+        script_flag = {'script': True}
         interesting_meter = interesting_meter + 1
 
     # text to code comparison

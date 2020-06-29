@@ -83,7 +83,7 @@ The keys of the `downloaded.json` are subset of `final_1.json`. The keys(self-ex
 
 ### Web Page Classifier
 
-The core of the program, classifies the webpage based on three parameters, information reveal relevance (side-channels) and user provided parameters. 
+The core of the program, classifies the webpage based on three parameters, information reveal relevance (side-channels) and user provided parameters. The process is heavy and hence multi-processing was used, thus making the process a little faster, but might heavy on use. 
 
 #### Headers
 

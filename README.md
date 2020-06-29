@@ -65,7 +65,7 @@ The ports identified running any webhosting scheme (http/https:) are pused to re
 
 The port numbers selected on the basis of this [(2014)study](https://arxiv.org/pdf/1308.6768.pdf).
 
-### Web Page donwloading
+### Web Page downloading
 This being the parent script of all the scripts is called first when executing the `run.sh`. The websites are downloaded in the hierarchy as follows.
 
 ```

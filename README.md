@@ -33,6 +33,18 @@ python -m spacy en_core_web_sm
 ```
 
 ### Usage
+Make sure, the TOR is running on the computer, 
+
+```bash
+sudo service tor start
+```
+
+and to ensure its working fine, you can check its status.
+
+```bash
+sudo service tor status
+```
+
 The program can be run using the bash script `run.sh`.
 
 ```bash

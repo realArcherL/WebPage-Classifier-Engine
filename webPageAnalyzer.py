@@ -397,5 +397,5 @@ def point_function(path):
     print('report_generated')
 
 
-# point_function('2020-06-26_00/')
+# point_function('2020-07-02_12')
 

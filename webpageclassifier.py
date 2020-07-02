@@ -212,21 +212,24 @@ def web_classifier_core(url):
         url.update(interest)
         url.update(data_extraction)
 
-        print(f'{url["html_path"]}')
+
         # print(url)
 
         if pathlib.Path.exists(path_parent / 'final_1.json'):
+            print(url['url'])
+            print(f'{url["html_path"]}')
             with open(path_parent / 'final_1.json', 'r+') as file2:
                 dict_final = json.load(file2)
                 dict_final.append(url)
                 file2.seek(0)
                 json.dump(dict_final, file2)
         else:
+            print(url['url'])
+            print(f'{url["html_path"]}')
             with open(path_parent / 'final_1.json', 'w+') as file3:
                 json.dump([url], file3)
     except Exception as ex:
         print(ex)
-
     print("web pages classified")
 
 
@@ -246,4 +249,4 @@ def point_function(path):
 
 # will be called by point function
 
-# point_function('2020-06-25_14')
+# point_function('2020-07-02_12')

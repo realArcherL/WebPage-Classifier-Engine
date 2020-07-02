@@ -277,6 +277,7 @@ def html_maker(content, path):
                     <a class="btn btn-ghost" style="background: #eb00ff" href="#">Interest Value: {round(query['interest'], 2)}</a>
                     <a class="btn btn-ghost" style="background: #199b19" href="#">Port: {query['port']}</a>
                     <a class="btn btn-ghost" href="#">&nbsp;Is redirect: {query['is_redirect']}</a>
+                    <a class="btn btn-ghost" href="#">&nbsp;Web Page type: {query['type']}</a>
                     <a class="btn btn-ghost" style="background: #4747e0" href="{query['url']}" target="_blank">Open Link</a>
                     </div></div>'''
 
@@ -342,6 +343,14 @@ def html_maker(content, path):
         button_counter += 1
         text_counter += 1
 
+        # combo-basic list
+        tag_id = 'tag_' + str(text_counter)
+        button_id = 'btn_' + str(button_counter)
+        data_string += list_maker(query['tags'], 'Found keywords', tag_id) + '\n'
+        button_string += button_maker(tag_id, button_id, 'Found keywords') + '\n'
+        button_counter += 1
+        text_counter += 1
+
         # # to add more options, just change the "based_on_functionality" in the below code"
         # tag_id = 'tag_' + str(text_counter)
         # button_id = 'btn_' + str(button_counter)
@@ -397,5 +406,5 @@ def point_function(path):
     print('report_generated')
 
 
-# point_function('2020-07-02_12')
+point_function('2020-06-23_18')
 

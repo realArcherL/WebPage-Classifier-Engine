@@ -6,7 +6,6 @@ import pathlib
 import portScanner
 import webpageclassifier
 import webPageAnalyzer
-import screenshot
 
 proxies = {
     'http': 'socks5h://127.0.0.1:9050',
@@ -100,7 +99,9 @@ def point_function(url_list):
 
 # main function is just for testing purposes
 if __name__ == "__main__":
-    with open('list_url', 'r+') as urls_file:
+    path = input("Enter the file path/name(if in same directory): ")
+    pathlib.Path(path)
+    with open(path, 'r+') as urls_file:
         list_urls = urls_file.read().splitlines()
 
     # read files from here
@@ -111,11 +112,11 @@ if __name__ == "__main__":
         exit()
 
     # screenshot
-    screenshot.screenshot_main(path_parent)
+    # screenshot.screenshot_main(path_parent)
     # call for the web page classifier and pass the file path.
-    webpageclassifier.web_classifier_core(path_parent / 'downloaded.json', path_parent)
+    webpageclassifier.point_function(path_parent)
     # report generation.
     webPageAnalyzer.point_function(path_parent)
 
-    print("=[Program Complete]=")
+    print("=[Taking Screenshots]=")
     # configure

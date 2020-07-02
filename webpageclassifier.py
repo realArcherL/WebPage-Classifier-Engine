@@ -3,6 +3,9 @@ import html2text
 import spacy
 import pyate
 import pathlib
+import concurrent.futures
+
+path_parent = pathlib.Path("Downloads")
 
 
 def check_key(dictionary, key):
@@ -42,7 +45,7 @@ def test_on_headers(path_header):
 
     # checking if these headers are present in the file
     check_headers = ['Server', 'Content-Type', 'Last-Modified', 'Set-Cookie', 'WWW-Authenticate', 'Alt-Svc',
-                     'Content-Disposition']
+                     'Content-Disposition', 'Content-Security-Policy', 'Strict-Transport-Security', 'ETag']
     for headers in check_headers:
 
         if check_key(headers_dict, headers):
@@ -86,7 +89,7 @@ def test_on_html(html_path):
 
     # checking for javascript, hence the interesting meter is increased by 10
     if html_content.count("<script"):
-        script_flag = {'script': False}
+        script_flag = {'script': True}
         interesting_meter = interesting_meter + 1
 
     # text to code comparison
@@ -188,51 +191,57 @@ def information_extraction(text):
 # def_webPage type determiner will require a trained algorithm.
 
 # the argument here will the URL query (first Json dictionary)
-def web_classifier_core(path, path_parent):
-    print('Classifying web Page')
-    path_parent = pathlib.Path(path_parent)
-
-    with open(path, 'r+') as download_json:
-        content = json.load(download_json)
-
+def web_classifier_core(url):
     # will be handled by point function during multiprocessing
-    for url in content:
-        try:
-            # response header analysis (common in all the downloaded web pages)
-            interest_value = test_on_headers(url['headers_path'])
-            interim_interest_value, script_flag, text = test_on_html(url['html_path'])
+    try:
+        # response header analysis (common in all the downloaded web pages)
+        interest_value = test_on_headers(url['headers_path'])
+        interim_interest_value, script_flag, text = test_on_html(url['html_path'])
 
-            # interest value update
-            interest_value = interim_interest_value + interest_value
+        # interest value update
+        interest_value = interim_interest_value + interest_value
 
-            data_extraction, final_interest_value = information_extraction(text)
+        data_extraction, final_interest_value = information_extraction(text)
 
-            # interest value update
-            interest_value = final_interest_value + interest_value
-            interest = {'interest': interest_value}
+        # interest value update
+        interest_value = final_interest_value + interest_value
+        interest = {'interest': interest_value}
 
-            # merging the data
-            url.update(script_flag)
-            url.update(interest)
-            url.update(data_extraction)
+        # merging the data
+        url.update(script_flag)
+        url.update(interest)
+        url.update(data_extraction)
 
-            print(f'{url["html_path"]}')
-            # print(url)
+        print(f'{url["html_path"]}')
+        # print(url)
 
-            if pathlib.Path.exists(path_parent / 'final_1.json'):
-                with open(path_parent / 'final_1.json', 'r+') as file2:
-                    dict_final = json.load(file2)
-                    dict_final.append(url)
-                    file2.seek(0)
-                    json.dump(dict_final, file2)
-            else:
-                with open(path_parent / 'final_1.json', 'w+') as file3:
-                    json.dump([url], file3)
-        except Exception as ex:
-            print(ex)
+        if pathlib.Path.exists(path_parent / 'final_1.json'):
+            with open(path_parent / 'final_1.json', 'r+') as file2:
+                dict_final = json.load(file2)
+                dict_final.append(url)
+                file2.seek(0)
+                json.dump(dict_final, file2)
+        else:
+            with open(path_parent / 'final_1.json', 'w+') as file3:
+                json.dump([url], file3)
+    except Exception as ex:
+        print(ex)
 
     print("web pages classified")
 
 
+def point_function(path):
+    print('Classifying web Page')
+    global path_parent
+    path_parent = pathlib.Path(path)
+
+    with open(path_parent / 'downloaded.json', 'r+') as download_json:
+        content = json.load(download_json)
+
+    with concurrent.futures.ProcessPoolExecutor() as executor:
+        executor.map(web_classifier_core, content)
+
+
 # will be called by point function
-# web_classifier_core('2020-06-23_18/downloaded.json', '2020-06-23_18/Images')
+
+# point_function('2020-06-25_14')

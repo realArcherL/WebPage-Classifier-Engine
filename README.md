@@ -141,6 +141,28 @@ def html_maker(content, path):
 
 The final ouput of the program is `report.html`.
 
+![Image](Docs/1.png)
+
+
+Some result keywords defination used in the report are:
+1. **List of Location**: Is the list of words which can relate to anything associated location, example St. Peter' Church, <country name>, <city name>, <lake name>. (but due to a glitch picks up bitcoin addresses as well)
+
+2. **List of Dates :** Is the list of words which can relate to anything associated dates (in any format).
+
+3. **List of Organisations :** Is the list of words which can relate to anything associated organisations.
+
+4. **List of Name :** Is the list of words which can relate to anything associated with any proper noun (names mostly, but due to a glitch picks up bitcoin addresses as well)
+
+5. **List of Emails :** Is the list of words which can relate to anything associated Emails (of any organisation).
+
+6. **List of Key-Phrases :** Is the list of words based on the combo-basic results of the text.(Natural Language Processing).
+
+7. **List of Found Keywords :** Is the list of words found in the text based on the keywords user provided in the `Key_List` folder lists.(Natural Language Processing).
+
+8. **List of Headers :** Is the list of headers found in the HTTP response of the webpage.
+
+
+
 #### Screenshot
 The screenshot function [screenshot.py](creenshot.py) is compatible with Firefox and Chrome webdrivers. It uses a headless browser and Selenium library, using the SOCKS5h proxy.
 Any of the webdriver can be used by uncommenting the code in the function.

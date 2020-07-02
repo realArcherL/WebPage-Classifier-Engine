@@ -32,6 +32,8 @@ python -m spacy download en_core_web_lg
 python -m spacy download en_core_web_sm
 ```
 
+**A web driver is required for the program to function properly, both Geko and chrome are configured to be used, but are to be donwloaded by the user manaually.**
+
 ### Usage
 Make sure, the TOR is running on the computer, 
 
@@ -161,6 +163,21 @@ Some result keywords defination used in the report are:
 
 8. **List of Headers :** Is the list of headers found in the HTTP response of the webpage.
 
+
+![Image](Docs/2.png)
+
+Terms
+1. **Javascript enabled :** This tells whether or not javascript is enabled on the webpage or not.
+
+2. **Interest value :** Is calculated based on the features of the webpage, check the [webpageclassifier.py](webpageclassifier.py) for more.
+
+3. **Port :** This tells which port the webpage was accessed on, on the target server.
+
+4. **Is redirect :** This tells whether or not the webpage was redirected to a new webpage.
+
+5. **Web Page Type :** This tells which type of web page was ecountered based on the hardcoded word list matching (rule based matching) currently four types exsist Blog, Porn, Market, Tech and default response in None.
+
+6. **Open Link :** This opens the link in a new tab.
 
 
 #### Screenshot

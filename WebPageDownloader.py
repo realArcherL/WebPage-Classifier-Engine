@@ -118,5 +118,11 @@ if __name__ == "__main__":
     # report generation.
     webPageAnalyzer.point_function(path_parent)
 
+    # removing pycache
+    try:
+        pathlib.Path.rmdir(pathlib.Path('__pycache__'))
+    except:
+        pass
+
     print("=[Taking Screenshots]=")
     # configure

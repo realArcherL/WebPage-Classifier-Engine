@@ -1,4 +1,4 @@
-python3 WebPageDownloader.py
+python3 -B WebPageDownloader.py
 exit_status=$?
 last_dir=$(ls -td -- */ | head -n 1 | cut -d'/' -f1)
 if [ "${exit_status}" == 0 ];

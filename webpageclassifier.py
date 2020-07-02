@@ -238,9 +238,11 @@ def point_function(path):
     with open(path_parent / 'downloaded.json', 'r+') as download_json:
         content = json.load(download_json)
 
-    with concurrent.futures.ProcessPoolExecutor() as executor:
-        executor.map(web_classifier_core, content)
+    for url in content:
+        web_classifier_core(url)
 
+    # with concurrent.futures.ProcessPoolExecutor() as executor:
+    #     executor.map(web_classifier_core, content)
 
 # will be called by point function
 

@@ -1,7 +1,6 @@
 import json
 import pathlib
 import sys
-
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import time
